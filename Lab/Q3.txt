@@ -1,0 +1,38 @@
+#include <stdio.h>
+void function (int a[4][4], int N){
+    int col=0,row=0,j;
+    for(j=0;j<N;j++){
+        row=j;
+        col=0;
+        while(row>=0&&col<N){
+            printf("%d\t",a[row][col]);
+            row--;
+            col++;
+        }
+    }
+    for(j=1;j<N;j++){
+        row=N-1;
+        col=j;
+        while(row>=0&&col<N){
+            printf("%d\t",a[row][col]);
+            row--;
+            col++;
+        }
+    }
+}
+
+int main()
+{
+    int i,j;
+    int mat[4][4]={{1,12,13,49},{5,16,17,81},{9,10,11,20},{2,45,19,14}};
+    for(i=0;i<4;i++){
+        for(j=0;j<4;j++){
+            printf("%d\t",mat[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    function(mat,4);
+
+    return 0;
+}

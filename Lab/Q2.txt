@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include<math.h>
+#define N 3
+//basically dominant variable.
+
+int is_diag_dom(int mat[N][N])
+{
+    for (int row = 0; row < N; row++)
+   {
+        int sumOfRow = 0;
+        for (int col = 0; col < N; col++)
+        {  
+            if(row != col)
+
+            {
+                sumOfRow+=fabs(mat[row][col]);        
+
+            }
+        }
+        if (fabs(mat[row][row]) < sumOfRow)
+            return 0;
+    }
+
+    return 1;
+}
+
+int main()
+
+{
+    int mat[N][N] = { { 5, -3, 1 }, { 1, -6, 2 }, { -3, 2, 7 } };
+    for(int row =0 ; row < N; row++)
+    {
+
+        for(int col =0; col < N ; col++)
+        {
+            printf("%d\t", mat[row][col]);
+        }
+        printf("\n");
+    }
+    if(is_diag_dom(mat) == 1)
+        printf("matrix is diagonally dominant.");
+    else
+        printf("matrix is not diagonally dominant.");
+    return 0;
+
+}

@@ -1,0 +1,23 @@
+#include<stdio.h>
+void letter_freq(char word[], int freq[]){
+    int i=0;
+    while(word[i]!='\0'){
+        if(word[i]>='a' && word[i]<='z')
+            freq[word[i]-'a']++;
+        else if(word[i]>='A' && word[i]<='Z')
+            freq[word[i]-'A']++;
+        i++;
+    }
+}
+int main(){
+    char word[50];
+    int freq[26] = {};
+    int i;
+    printf("Enter string: ");
+    scanf("%64s", word); //apparently %s is not as safe in scanf, so %64 is a security paraeter for a-z
+    letter_freq(word, freq);
+    for(i=0; i<26; i++){
+        printf("The count of '%c' and '%c' is %d\n", (i+'A'), (i+'a'), freq[i]);
+    }
+    return 0;
+}

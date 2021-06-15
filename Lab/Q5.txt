@@ -1,0 +1,33 @@
+#include<stdio.h>
+void string_copy(const char org[],char dest[],int N);
+main(){
+    char word[50];
+    int size;
+    printf("Enter string for source array: \n");
+    scanf("%[^\n]s",word);
+    printf("Enter size of destination array: \n");
+    scanf("%d",&size); 
+    char Cword[size];
+    string_copy(word,Cword,size);
+}
+void string_copy(const char org[],char dest[],int N)
+{
+    int i=0,orglen=0;
+    for(i=0;org[i]!='\0';i++){
+        orglen++;
+    }
+    if(orglen<N || orglen==N){
+        for(i=0;i<orglen;i++){
+            dest[i]=org[i]; 
+        }
+    }
+    else{
+        for(i=0;i<N;i++){
+            dest[i]=org[i]; 
+        }
+    }
+    printf("Copied String in Destination array: \n");
+    for(i=0;i<N;i++){
+    printf("%c",dest[i]);
+    }   
+}

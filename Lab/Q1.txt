@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <math.h>
+
+void print_vector(double array[] , int size){
+   int i;
+   for(i=0;i<size;i++){
+       printf("%f ,",array[i]);
+   }
+}
+
+void add_vectors(double x[],double y[],double z[],int n){
+   int i;
+   for(i=0;i<n;i++){
+       z[i] = y[i] + x[i];
+   }
+}
+
+double scalar_prod(double x[],double y[],int n){
+   double sum=0;
+   int i;
+   for(i=0;i<n;i++){
+       sum+=y[i] * x[i];
+   }
+   return sum;
+}
+double norm2(double norm[],int n){
+   return sqrt(scalar_prod(norm,norm,n));
+}
+
+int main(){
+   double x[] = {1,2,3};
+   double y[] = {4,5,6};
+  
+   double z[3];
+  
+   printf("x=");
+   print_vector(x,3);
+   printf("\ny=");
+   print_vector(y,3);
+   add_vectors(x,y,z,3);
+   printf("\nsum of vector x and vector y =");
+   print_vector(z,3);
+  
+  
+   printf("\nsum of vector x and vector y = %.2f\n",scalar_prod(x,y,3));
+  
+   printf("Norm of vector x = %f\n",norm2(x,3));
+   return 0;
+}
